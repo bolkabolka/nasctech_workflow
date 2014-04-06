@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'activesupport', '~> 4.1.0.rc2'
+gem 'activeresource', '~> 4.0.0', require: 'active_resource'
 

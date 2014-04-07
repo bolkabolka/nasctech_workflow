@@ -1,13 +1,18 @@
+GIT
+  remote: git@github.com:rails/activeresource.git
+  revision: 29a38418cbdd5bd2324660cf91139c403688d467
+  specs:
+    activeresource (4.0.0)
+      activemodel (~> 4.0)
+      activesupport (~> 4.0)
+      rails-observers (~> 0.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
     activemodel (4.0.4)
       activesupport (= 4.0.4)
       builder (~> 3.1.0)
-    activeresource (4.0.0)
-      activemodel (~> 4.0)
-      activesupport (~> 4.0)
-      rails-observers (~> 0.1.1)
     activesupport (4.0.4)
       i18n (~> 0.6, >= 0.6.9)
       minitest (~> 4.2)
@@ -20,11 +25,11 @@ GEM
     multi_json (1.9.2)
     rails-observers (0.1.2)
       activemodel (~> 4.0)
-    thread_safe (0.3.2)
+    thread_safe (0.3.3)
     tzinfo (0.3.39)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeresource (~> 4.0.0)
+  activeresource!

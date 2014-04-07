@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'activeresource', '~> 4.0.0', require: 'active_resource'
+ruby '2.1.1'
+
+gem 'activeresource', git: 'git@github.com:rails/activeresource.git', require: 'active_resource'
 

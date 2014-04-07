@@ -10,7 +10,12 @@ class Issue < Base
     true
   end
 
+  def merged
+    self.custom_field_values = { '14' => 'develop' }
+  end
+
   def reviewed!
+    merged
     self.status_id = 3
     self.assigned_to_id = 15
     save

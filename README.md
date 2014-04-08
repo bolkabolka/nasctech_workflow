@@ -1,6 +1,6 @@
 # NasctechWorkflow
 
-TODO: Write a gem description
+Tools collection for automate processes with redmine.
 
 ## Installation
 
@@ -9,6 +9,12 @@ TODO: Add some instructions
 ## Usage
 
 TODO: Write usage instructions here
+
+## Features Plan
+  1. Add options_parser
+    * -p merged to parent
+    * -k keep in branch
+  2. Get ticket id from last commit
 
 ## Contributing
 

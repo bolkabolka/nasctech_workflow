@@ -4,7 +4,7 @@ require 'rubygems'
 require 'bundler/setup'
 Bundler.require(:default)
 
-require './lib/issue'
+require File.expand_path('../../lib/issue', __FILE__)
 
 opts = Slop.parse do
   on '-v', 'Print the version' do

@@ -25,6 +25,7 @@ GEM
     multi_json (1.9.2)
     rails-observers (0.1.2)
       activemodel (~> 4.0)
+    slop (3.5.0)
     thread_safe (0.3.3)
     tzinfo (0.3.39)
 
@@ -33,3 +34,4 @@ PLATFORMS
 
 DEPENDENCIES
   activeresource!
+  slop

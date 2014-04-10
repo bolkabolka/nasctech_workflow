@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler/setup'
+Bundler.require(:default)
+
+require './lib/issue'
+
+opts = Slop.parse do
+  on '-v', 'Print the version' do
+    puts 'Version 1.0'
+  end
+
+  command 'resolve' do
+    on :k, :keep, 'Keep functionality in branch, without merge.'
+    on :t, :ticket=, 'Ticket number.', as: Integer
+
+    run do |opts, args|
+      # TODO parse ticket number from last commit
+      raise "Ticket number can't be blank." unless opts[:ticket]
+
+      issue = Issue.find opts[:ticket]
+      issue.resolve! merged: !opts[:keep]
+    end
+  end
+end

@@ -4,7 +4,7 @@ require 'nasctech_workflow'
 
 Slop.parse do
   on '-v', 'Print the version' do
-    puts 'Version 1.0'
+    puts "Version #{NasctechWorkflow::VERSION}"
   end
   command 'resolve' do
     on :k, :keep, 'Keep functionality in branch, without merge.'

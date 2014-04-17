@@ -1,4 +1,4 @@
-require File.expand_path('../base', __FILE__)
+require 'nasctech_workflow/base'
 
 module NasctechWorkflow
   class TimeEntry < Base

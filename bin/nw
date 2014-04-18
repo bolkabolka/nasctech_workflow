@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 require 'nasctech_workflow'
+require 'nasctech_workflow/time_entry'
+require 'nasctech_workflow/issue'
 
 Slop.parse do
   on '-v', 'Print the version' do

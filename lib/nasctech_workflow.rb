@@ -1,6 +1,6 @@
-#require 'nasctech_workflow/time_entry'
-#require 'nasctech_workflow/issue'
 require 'slop'
+require 'active_resource'
+
 require 'nasctech_workflow/version'
 
 module NasctechWorkflow

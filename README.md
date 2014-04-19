@@ -4,11 +4,18 @@ Tools collection for automate processes with redmine.
 
 ## Installation
 
-TODO: Add some instructions
+  1. gem install nasctech_workflow --source https://eKbwPx4qxkWgqzAwGXFZ@gem.fury.io/bolkabolka/
+  2. create .nasctech_workflow.yml at your home directory
+    
+    ######Example
+      > - `redmine:`
+      >   - `site: 'http://redmine.nasctech.com/'`
+      >   - `user: superman`
+      >   - `password: nooneknow`
 
 ## Usage
 
-TODO: Write usage instructions here
+nw -v
 
 ## Features Plan
   1. Add options_parser

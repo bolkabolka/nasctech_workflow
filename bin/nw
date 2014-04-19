@@ -4,7 +4,7 @@ require 'nasctech_workflow'
 require 'nasctech_workflow/time_entry'
 require 'nasctech_workflow/issue'
 
-Slop.parse do
+Slop.parse help: true do
   on '-v', 'Print the version' do
     puts "Version #{NasctechWorkflow::VERSION}"
   end

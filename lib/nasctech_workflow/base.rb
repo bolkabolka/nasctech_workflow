@@ -2,7 +2,9 @@ require 'yaml'
 
 class NasctechWorkflow::Base < ActiveResource::Base
 
-  YAML.load_file(File.join(File.expand_path('~/'), '.nasctech_workflow.yml')).each do |key, value|
+  CONFIG = File.join(File.expand_path('~/'), '.nasctech_workflow.yml')
+
+  YAML.load_file(CONFIG)['redmine'].each do |key, value|
     self.send("#{key}=", value)
   end
 

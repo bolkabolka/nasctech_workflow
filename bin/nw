@@ -3,9 +3,10 @@
 require 'nasctech_workflow'
 require 'nasctech_workflow/time_entry'
 require 'nasctech_workflow/issue'
+require 'nasctech_workflow/git'
 
 Slop.parse help: true do
-  on '-v', 'Print the version' do
+  on :v, :version, 'Print the version' do
     puts "Version #{NasctechWorkflow::VERSION}"
   end
   command 'resolve' do
@@ -13,10 +14,10 @@ Slop.parse help: true do
     on :t, :ticket=, 'Ticket number.', as: Integer
 
     run do |opts, args|
-      # TODO parse ticket number from last commit
-      raise "Ticket number can't be blank." unless opts[:ticket]
+      ticket = opts[:ticket] || NasctechWorkflow::Git.parse_ticket_number
+      raise 'Could not identify ticket ID.' unless ticket
 
-      issue = NasctechWorkflow::Issue.find opts[:ticket]
+      issue = NasctechWorkflow::Issue.find ticket
       issue.resolve! merged: !opts[:keep]
     end
   end

@@ -1,6 +1,6 @@
 # NasctechWorkflow
 
-Tools collection for automate processes with redmine.
+Tool for automate processes with redmine.
 
 ## Installation
 
@@ -15,7 +15,7 @@ Tools collection for automate processes with redmine.
 
 ## Usage
 
-nw -v
+nw --help
 
 ## Features Plan
   1. Get ticket id from last commit

@@ -22,5 +22,11 @@ module NasctechWorkflow
              activity_id: ACTIVITIES[:review],
              hours: hours)
     end
+
+    def self.log_development(ticket_id, hours)
+      create(issue_id: ticket_id,
+             activity_id: ACTIVITIES[:development],
+             hours: hours)
+    end
   end
 end

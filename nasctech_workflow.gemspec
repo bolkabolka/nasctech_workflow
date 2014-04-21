@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = NasctechWorkflow::VERSION
   spec.authors       = ['Slavik Balabolka']
   spec.email         = ['bolkabolka@gmail.com']
-  spec.summary       = %q{CLI tools for Nasctech workflows.}
-  spec.description   = %q{CLI tools for automate processes with Redmine and git.}
-  spec.homepage      = ''
+  spec.summary       = %q{CLI tool for Nasctech workflows.}
+  spec.description   = %q{CLI tool for automate processes with Redmine and git.}
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -18,7 +17,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'slop'
+  spec.add_runtime_dependency 'slop', '~> 3.5.0'
+  spec.add_runtime_dependency 'highline', '~> 1.6.21'
   spec.add_runtime_dependency 'activeresource', '~> 4.0.0'
 
   spec.add_development_dependency 'bundler', '~> 1.6'

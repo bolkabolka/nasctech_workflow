@@ -15,10 +15,12 @@ Slop.parse help: true do
 
     run do |opts, args|
       ticket = opts[:ticket] || NasctechWorkflow::Git.parse_ticket_number
-      raise 'Could not identify ticket ID.' unless ticket
+      say 'Could not identify ticket ID.' && exit unless ticket
 
-      issue = NasctechWorkflow::Issue.find ticket
-      issue.resolve! merged: !opts[:keep]
+      if opts[:ticket] || agree("I'm going to resolve ticket ##{ticket}, ok?")
+        issue = NasctechWorkflow::Issue.find ticket
+        issue.resolve! merged: !opts[:keep]
+      end
     end
   end
 end

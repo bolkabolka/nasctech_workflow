@@ -1,4 +1,5 @@
 require 'nasctech_workflow/base'
+require 'nasctech_workflow/time_entry'
 
 module NasctechWorkflow
   class Issue < Base
@@ -21,12 +22,14 @@ module NasctechWorkflow
       self.custom_field_values[SERVER_BRANCH.to_s] = parent_branch
     end
 
-    def resolve!(merged: true)
+    def resolve!(merged: true, duration: nil)
       if merged
         set_branches
       else
         self.notes = "Let's keep in branch"
       end
+
+      NasctechWorkflow::TimeEntry.log_review(id, duration) if duration
 
       self.status_id = 3
       self.assigned_to_id = 15

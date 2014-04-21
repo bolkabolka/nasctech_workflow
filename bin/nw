@@ -6,20 +6,21 @@ require 'nasctech_workflow/issue'
 require 'nasctech_workflow/git'
 
 Slop.parse help: true do
-  on :v, :version, 'Print the version' do
-    puts "Version #{NasctechWorkflow::VERSION}"
+  on :v, :version, 'Print the version.' do
+    say "Version #{NasctechWorkflow::VERSION}"
   end
   command 'resolve' do
     on :k, :keep, 'Keep functionality in branch, without merge.'
     on :t, :ticket=, 'Ticket number.', as: Integer
+    on :d, :duration=, 'Time spend in format HH:MM.'
 
     run do |opts, args|
       ticket = opts[:ticket] || NasctechWorkflow::Git.parse_ticket_number
-      say 'Could not identify ticket ID.' && exit unless ticket
+      say('Could not identify ticket ID.') && exit unless ticket
 
       if opts[:ticket] || agree("I'm going to resolve ticket ##{ticket}, ok?")
         issue = NasctechWorkflow::Issue.find ticket
-        issue.resolve! merged: !opts[:keep]
+        issue.resolve! merged: !opts[:keep], duration: opts[:duration]
       end
     end
   end

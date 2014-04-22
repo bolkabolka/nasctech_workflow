@@ -6,7 +6,7 @@ Tool for automate processes with redmine.
 
   1. gem install nasctech_workflow --source https://eKbwPx4qxkWgqzAwGXFZ@gem.fury.io/bolkabolka/
   2. create .nasctech_workflow.yml at your home directory
-    
+
     ######Example
       > - `redmine:`
       >   - `site: 'http://redmine.nasctech.com/'`
@@ -18,7 +18,9 @@ Tool for automate processes with redmine.
 nw --help
 
 ## Features Plan
-  1. Get ticket id from last commit
+  1. Case if parent branch blank.
+  2. Validate configuration.
+  3. Add tests.
 
 ## Contributing
 

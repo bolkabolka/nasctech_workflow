@@ -30,7 +30,7 @@ module NasctechWorkflow
 
     def gui_branch_not_set?
       gui_branch.empty? ||
-        gui.branch.eql?('-') ||
+        gui_branch.eql?('-') ||
         gui_branch.eql?(parent_branch)
     end
 

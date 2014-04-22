@@ -12,7 +12,7 @@ class NasctechWorkflow::Git
       branch = branch_name
       return if branch.empty?
 
-      if agree("Should i set GUI branch to #{branch}?")
+      if agree("Should i set GUI branch to #{branch}? (yes/no)")
         branch
       end
     end
@@ -26,7 +26,7 @@ class NasctechWorkflow::Git
       return if ticket_ids.empty?
 
       if ticket_ids.size.eql?(1)
-        if agree("I'm going to update ticket ##{ticket_ids.first}, ok")
+        if agree("I'm going to update ticket ##{ticket_ids.first}, ok? (yes/no)")
           return ticket_ids.first
         else
           return

@@ -15,10 +15,12 @@ Slop.parse help: true do
 
     run do |opts, args|
       ticket = opts[:ticket] || NasctechWorkflow::Git.detect_ticket_number
-      say('Could not identify ticket ID.') && exit unless ticket
-
-      issue = NasctechWorkflow::Issue.find ticket
-      issue.resolve! merged: !opts[:keep], duration: opts[:duration]
+      if ticket
+        issue = NasctechWorkflow::Issue.find ticket
+        issue.resolve! merged: !opts[:keep], duration: opts[:duration]
+      else
+        say('Could not identify ticket ID.')
+      end
     end
   end
 
@@ -29,10 +31,13 @@ Slop.parse help: true do
 
     run do |opts, args|
       ticket = opts[:ticket] || NasctechWorkflow::Git.detect_ticket_number
-      say('Could not identify ticket ID.') && exit unless ticket
 
-      issue = NasctechWorkflow::Issue.find ticket
-      issue.progress! branch: opts[:branch], duration: opts[:duration]
+      if ticket
+        issue = NasctechWorkflow::Issue.find ticket
+        issue.progress! branch: opts[:branch], duration: opts[:duration]
+      else
+        say('Could not identify ticket ID.')
+      end
     end
   end
 end

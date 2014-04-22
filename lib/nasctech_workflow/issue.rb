@@ -74,7 +74,8 @@ module NasctechWorkflow
       NasctechWorkflow::TimeEntry.log_development(id, duration) if duration
 
       self.custom_field_values[GUI_BRANCH.to_s] = branch
-      # self.assigned_to_id = 15
+      # TODO: make it configurable, currenctly VB
+      self.assigned_to_id = 41
       self.status_id = STATUSES[:review]
       save
     end

@@ -24,6 +24,25 @@ Slop.parse help: true do
     end
   end
 
+  command 'review' do
+    on :b, :branch=, 'Set GUI branch.'
+    on :t, :ticket=, 'Ticket number.', as: Integer
+    on :d, :duration=, 'Time spend in format HH:MM.'
+
+    run do |opts, args|
+      ticket = opts[:ticket] || NasctechWorkflow::Git.detect_ticket_number
+      branch = opts[:branch] || NasctechWorkflow::Git.detect_branch_name
+
+      if ticket && branch
+        issue = NasctechWorkflow::Issue.find ticket
+        issue.review! branch: opts[:branch], duration: opts[:duration]
+      end
+
+      say('Could not identify ticket ID.') unless ticket
+      say('Could not identify branch.') unless branch
+    end
+  end
+
   command 'progress' do
     on :b, :branch=, 'Set GUI branch.'
     on :t, :ticket=, 'Ticket number.', as: Integer

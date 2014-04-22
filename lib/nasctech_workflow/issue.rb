@@ -69,5 +69,14 @@ module NasctechWorkflow
       self.assigned_to_id = 15
       save
     end
+
+    def review!(branch: nil, duration: nil)
+      NasctechWorkflow::TimeEntry.log_development(id, duration) if duration
+
+      self.custom_field_values[GUI_BRANCH.to_s] = branch
+      # self.assigned_to_id = 15
+      self.status_id = STATUSES[:review]
+      save
+    end
   end
 end

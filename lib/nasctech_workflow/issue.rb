@@ -48,13 +48,12 @@ module NasctechWorkflow
     end
 
     def set_branches
-      self.custom_field_values ||= {}
       self.custom_field_values[GUI_BRANCH.to_s] = parent_branch
       self.custom_field_values[SERVER_BRANCH.to_s] = parent_branch
     end
 
     def progress!(branch: nil, duration: nil)
-      self.custom_field_values ||= {}
+      self.custom_field_values = {}
 
       if !branch && gui_branch_not_set?
         branch = NasctechWorkflow::Git.detect_branch_name
@@ -68,6 +67,8 @@ module NasctechWorkflow
     end
 
     def resolve!(merged: true, duration: nil)
+      self.custom_field_values = {}
+
       if merged
         set_branches
       else
@@ -82,7 +83,7 @@ module NasctechWorkflow
     end
 
     def review!(branch: nil, duration: nil)
-      self.custom_field_values ||= {}
+      self.custom_field_values = {}
 
       if TYPES_REQUIRE_REASON.values.include? tracker.id
         self.custom_field_values[REASON.to_s] = select_reason
